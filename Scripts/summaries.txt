@@ -1,0 +1,283 @@
+----------------------------
+results for file: 
+cellshilicpos_VF025FC15_SGNF_dump.csv
+
+Number of tests with positive fc in parenthesis
+INFg--UT: 25 (23)
+aSYN--INFg: 23 (2)
+aSYN--comb.: 24 (2)
+comb.--UT: 24 (22)
+
+number of compounds (masstime): 34
+max number of tests per compound: 4
+1 test in 7 cases
+2 test in 8 cases
+3 test in 3 cases
+4 test in 16 cases
+
+1 test(s) present, mean absolute FC: 1.7657142857142858
+2 test(s) present, mean absolute FC: 1.7133749999999999
+3 test(s) present, mean absolute FC: 1.802
+4 test(s) present, mean absolute FC: 2.9389531250000003
+
+common pattern ['aSYN--comb.', 'aSYN--INFg', 'comb.--UT', 'INFg--UT']
+Proportion of [-1 -1  1  1]: 0.875
+Proportion of [ 1  1 -1 -1]: 0.125
+proportion of outliers: 0.0
+
+----------------------------
+results for file: 
+cellsRPneg_VF025FC15_SGNF_dump.csv
+
+Number of tests with positive fc in parenthesis
+INFg--UT: 16 (10)
+aSYN--INFg: 18 (6)
+aSYN--comb.: 27 (6)
+comb.--UT: 26 (20)
+
+number of compounds (masstime): 33
+max number of tests per compound: 4
+1 test in 10 cases
+2 test in 6 cases
+3 test in 3 cases
+4 test in 14 cases
+
+1 test(s) present, mean absolute FC: 1.9800999999999997
+2 test(s) present, mean absolute FC: 2.0919166666666666
+3 test(s) present, mean absolute FC: 1.8710000000000002
+4 test(s) present, mean absolute FC: 2.9239285714285717
+
+common pattern ['aSYN--comb.', 'aSYN--INFg', 'comb.--UT', 'INFg--UT']
+Proportion of [-1 -1  1  1]: 0.6428571428571429
+Proportion of [ 1  1 -1 -1]: 0.35714285714285715
+proportion of outliers: -5.551115123125783e-17
+
+----------------------------
+results for file: 
+cellsRPpos_VF025FC15_SGNF_dump.csv
+
+Number of tests with positive fc in parenthesis
+INFg--UT: 50 (34)
+aSYN--INFg: 39 (12)
+aSYN--UT: 1 (0)
+aSYN--comb.: 56 (11)
+comb.--INFg.: 1 (0)
+comb.--UT: 70 (54)
+
+number of compounds (masstime): 76
+max number of tests per compound: 4
+1 test in 12 cases
+2 test in 22 cases
+3 test in 7 cases
+4 test in 35 cases
+
+1 test(s) present, mean absolute FC: 1.7918333333333332
+2 test(s) present, mean absolute FC: 1.9086590909090908
+3 test(s) present, mean absolute FC: 2.177
+4 test(s) present, mean absolute FC: 3.1638285714285717
+
+common pattern ['aSYN--comb.', 'aSYN--INFg', 'comb.--UT', 'INFg--UT']
+Proportion of [-1 -1  1  1]: 0.6857142857142857
+Proportion of [ 1  1 -1 -1]: 0.2857142857142857
+proportion of outliers: 0.02857142857142858
+
+----------------------------
+results for file: 
+lipidneg_VF025FC15_SGNF_dump.csv
+
+Number of tests with positive fc in parenthesis
+INFg--UT: 215 (204)
+aSYN--INFg: 190 (10)
+aSYN--comb.: 233 (11)
+comb.--UT: 261 (249)
+
+number of compounds (masstime): 279
+max number of tests per compound: 4
+1 test in 38 cases
+2 test in 33 cases
+3 test in 37 cases
+4 test in 171 cases
+
+1 test(s) present, mean absolute FC: 1.7703947368421054
+2 test(s) present, mean absolute FC: 1.8792878787878786
+3 test(s) present, mean absolute FC: 1.9212432432432436
+4 test(s) present, mean absolute FC: 2.4827587719298245
+
+common pattern ['aSYN--comb.', 'aSYN--INFg', 'comb.--UT', 'INFg--UT']
+Proportion of [-1 -1  1  1]: 0.9415204678362573
+Proportion of [ 1  1 -1 -1]: 0.05847953216374269
+proportion of outliers: 0.0
+
+----------------------------
+results for file: 
+lipidpos_VF025FC15_SGNF_dump.csv
+
+Number of tests with positive fc in parenthesis
+INFg--UT: 218 (161)
+aSYN--INFg: 212 (64)
+aSYN--comb.: 265 (77)
+comb.--UT: 274 (200)
+
+number of compounds (masstime): 309
+max number of tests per compound: 4
+1 test in 44 cases
+2 test in 52 cases
+3 test in 31 cases
+4 test in 182 cases
+
+1 test(s) present, mean absolute FC: 1.7806136363636365
+2 test(s) present, mean absolute FC: 1.9973653846153847
+3 test(s) present, mean absolute FC: 2.03936559139785
+4 test(s) present, mean absolute FC: 2.4392321428571426
+
+common pattern ['aSYN--comb.', 'aSYN--INFg', 'comb.--UT', 'INFg--UT']
+Proportion of [-1 -1  1  1]: 0.7087912087912088
+Proportion of [ 1  1 -1 -1]: 0.29120879120879123
+proportion of outliers: -5.551115123125783e-17
+
+----------------------------
+results for file: 
+mediumhiligneg_VF025FC15_SGNF_dump.csv
+
+Number of tests with positive fc in parenthesis
+INFg--UT: 3 (3)
+aSYN--INFg: 8 (1)
+aSYN--UT: 4 (0)
+aSYN--comb.: 3 (0)
+comb.--INFg.: 4 (0)
+comb.--UT: 7 (3)
+
+number of compounds (masstime): 8
+max number of tests per compound: 4
+1 test in 1 cases
+2 test in 0 cases
+3 test in 0 cases
+4 test in 7 cases
+
+1 test(s) present, mean absolute FC: 1.504
+2 test(s) present, mean absolute FC: nan
+3 test(s) present, mean absolute FC: nan
+4 test(s) present, mean absolute FC: 4.088785714285714
+
+common pattern ['aSYN--comb.', 'aSYN--INFg', 'comb.--UT', 'INFg--UT']
+Proportion of [-1 -1  1  1]: 0.42857142857142855
+Proportion of [ 1  1 -1 -1]: 0.0
+proportion of outliers: 0.5714285714285714
+
+*uncommon* pattern ['aSYN--INFg', 'aSYN--UT', 'comb.--INFg.', 'comb.--UT']
+Proportion of [-1 -1 -1 -1]: 0.5714285714285714
+ 
+----------------------------
+results for file: 
+mediumhiligpos_VF025FC15_SGNF_dump.csv
+
+Number of tests with positive fc in parenthesis
+INFg--UT: 15 (11)
+aSYN--INFg: 23 (4)
+aSYN--UT: 8 (0)
+aSYN--comb.: 15 (5)
+comb.--INFg.: 9 (0)
+comb.--UT: 24 (12)
+
+number of compounds (masstime): 26
+max number of tests per compound: 4
+1 test in 1 cases
+2 test in 3 cases
+3 test in 1 cases
+4 test in 21 cases
+
+1 test(s) present, mean absolute FC: 1.641
+2 test(s) present, mean absolute FC: 1.9521666666666668
+3 test(s) present, mean absolute FC: 1.5473333333333334
+4 test(s) present, mean absolute FC: 4.392392857142857
+
+common pattern ['aSYN--comb.', 'aSYN--INFg', 'comb.--UT', 'INFg--UT']
+Proportion of [-1 -1  1  1]: 0.42857142857142855
+Proportion of [ 1  1 -1 -1]: 0.19047619047619047
+proportion of outliers: 0.38095238095238093
+
+*uncommon* pattern ['aSYN--INFg', 'aSYN--UT', 'comb.--INFg.', 'comb.--UT']
+Proportion of [-1 -1 -1 -1]: 0.38095238095238093
+
+----------------------------
+results for file: 
+mediumRPneg_VF025FC15_SGNF_dump.csv
+
+Number of tests with positive fc in parenthesis
+INFg--UT: 20 (15)
+aSYN--INFg: 26 (5)
+aSYN--UT: 6 (0)
+aSYN--comb.: 19 (5)
+comb.--INFg.: 6 (0)
+comb.--UT: 26 (15)
+
+number of compounds (masstime): 27
+max number of tests per compound: 4
+1 test in 1 cases
+2 test in 1 cases
+3 test in 0 cases
+4 test in 25 cases
+
+1 test(s) present, mean absolute FC: 1.82
+2 test(s) present, mean absolute FC: 1.523
+3 test(s) present, mean absolute FC: nan
+4 test(s) present, mean absolute FC: 5.59216
+
+common pattern ['aSYN--comb.', 'aSYN--INFg', 'comb.--UT', 'INFg--UT']
+Proportion of [-1 -1  1  1]: 0.56
+Proportion of [ 1  1 -1 -1]: 0.2
+proportion of outliers: 0.23999999999999994
+
+*uncommon* pattern ['aSYN--INFg', 'aSYN--UT', 'comb.--INFg.', 'comb.--UT']
+Proportion of [-1 -1 -1 -1]: 0.24
+
+----------------------------
+results for file: 
+mediumRPpos_VF025FC15_SGNF_dump.csv
+
+Number of tests with positive fc in parenthesis
+INFg--UT: 50 (33)
+aSYN--INFg: 55 (17)
+aSYN--UT: 9 (0)
+aSYN--comb.: 46 (17)
+comb.--INFg.: 9 (0)
+comb.--UT: 58 (30)
+
+number of compounds (masstime): 63
+max number of tests per compound: 4
+1 test in 6 cases
+2 test in 2 cases
+3 test in 3 cases
+4 test in 52 cases
+
+1 test(s) present, mean absolute FC: 1.7995
+2 test(s) present, mean absolute FC: 1.749
+3 test(s) present, mean absolute FC: 2.036
+4 test(s) present, mean absolute FC: 4.668802884615385
+
+common pattern ['aSYN--comb.', 'aSYN--INFg', 'comb.--UT', 'INFg--UT']
+Proportion of [-1 -1  1  1]: 0.5192307692307693
+Proportion of [ 1  1 -1 -1]: 0.3076923076923077
+proportion of outliers: 0.17307692307692302
+
+*uncommon* pattern ['aSYN--INFg', 'aSYN--UT', 'comb.--INFg.', 'comb.--UT']
+Proportion of [-1 -1 -1 -1]: 0.17307692307692307
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
