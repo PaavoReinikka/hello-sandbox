@@ -8,7 +8,7 @@ def complete_pairplot(X, label_col=None, feature_tag=None):
     if isinstance(X, pd.DataFrame):
         sns.pairplot(X, vars=X.columns[:-1],hue=label_col)
     else:
-        assert(isinstance(X, np.ndarray)
+        assert(isinstance(X, np.ndarray))
         df_X = pd.DataFrame(X)
         if(feature_tag is not None):
             df_X.columns = feature_tag
