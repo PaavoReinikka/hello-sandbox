@@ -5,19 +5,19 @@ import matplotlib.pyplot as plt
 
 
 
-def complete_pairplot(X, label_col=None, feature_tag=None):
+def complete_pairplot(X, group_col=None, feature_ids=None):
     if isinstance(X, pd.DataFrame):
-        sns.pairplot(X, vars=X.columns[:-1],hue=label_col)
+        if(group_col is None):
+            group_col='group'
+        sns.pairplot(X, vars=X.columns[:-1],hue=group_col)
     else:
-        assert(isinstance(X, np.ndarray))
         df_X = pd.DataFrame(X)
-        if(feature_tag is not None):
-            df_X.columns = feature_tag
-        if(isinstance(label_col, np.ndarray)):
-            df_X['group']=label_col
-            sns.pairplot(df_X, vars=df_X.columns[:-1],hue='group')
-        else:
-            sns.pairplot(df_X)
+        if(feature_ids is None):
+            feature_ids = ["V{}".format(i) for i in range(X.shape[1])]
 
+        df_X.columns = feature_ids
+        df_X['group']=group_col
+        sns.pairplot(df_X, vars=df_X.columns[:-1],hue='group')
+        
 
         

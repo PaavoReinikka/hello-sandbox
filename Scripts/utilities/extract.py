@@ -1,6 +1,15 @@
 import numpy as np
 import pandas as pd
 
+def extract_pvalues(df,MT, mt_col=' masstime', pvalue_col=" p_FDR", test_col=' test'):
+    pvalues=[]
+    tests=[]
+    inds=np.where(df[mt_col]==MT)[0]
+    for ind in inds:
+        pvalues.append(df[pvalue_col].iloc[ind])
+        tests.append(df[test_col].iloc[ind])
+    return pvalues, tests
+
 def get_feature_matrix(masstime, data, significant=True):
     
     # from "data" dataframe, extract significant features
