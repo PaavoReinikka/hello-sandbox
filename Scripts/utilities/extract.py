@@ -1,7 +1,26 @@
 import numpy as np
 import pandas as pd
 
-def extract_pvalues(df,MT, mt_col=' masstime', pvalue_col=" p_FDR", test_col=' test'):
+def display_pvalues(MTs, Ps, Ts, title=None):
+    if(title is not None):
+        print(title)
+    for i, tup in enumerate(zip(Ps, Ts)):
+        print("-----------------------")
+        print("Peak:", MTs[i])
+        print("P-values:", tup[0])
+        print("Tests:", tup[1])
+        
+
+def extract_pvalues(df, MTs, mt_col=' masstime', pvalue_col=" p_FDR", test_col=' test'):
+    pvalues=[]
+    tests=[]
+    for mt in MTs:
+        p, t = extract_pvalues_(df, mt, mt_col, pvalue_col, test_col)
+        pvalues.append(p)
+        tests.append(t)
+    return MTs, pvalues, tests
+
+def extract_pvalues_(df,MT, mt_col=' masstime', pvalue_col=" p_FDR", test_col=' test'):
     pvalues=[]
     tests=[]
     inds=np.where(df[mt_col]==MT)[0]
