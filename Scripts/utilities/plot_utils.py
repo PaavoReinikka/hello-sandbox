@@ -5,11 +5,18 @@ import matplotlib.pyplot as plt
 
 
 
-def complete_pairplot(X, group_col=None, feature_ids=None):
+def complete_pairplot(X, group_col=None, feature_ids=None, kind='kde', palette=None):
     if isinstance(X, pd.DataFrame):
         if(group_col is None):
             group_col='group'
-        sns.pairplot(X, vars=X.columns[:-1],hue=group_col)
+        
+        sns.pairplot(data=X,
+            vars=X.columns[:-1],
+            kind='scatter',
+            hue=group_col,
+            palette=palette,
+            diag_kind=kind)
+                
     else:
         df_X = pd.DataFrame(X)
         if(feature_ids is None):
@@ -17,7 +24,12 @@ def complete_pairplot(X, group_col=None, feature_ids=None):
 
         df_X.columns = feature_ids
         df_X['group']=group_col
-        sns.pairplot(df_X, vars=df_X.columns[:-1],hue='group')
         
+        sns.pairplot(data=df_X,
+            vars=df_X.columns[:-1],
+            kind='scatter',
+            hue='group',
+            palette=palette,
+            diag_kind=kind)
 
-        
+    
