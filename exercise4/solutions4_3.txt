@@ -1,0 +1,26 @@
+MDM2023 Taks 4.2 a-b. See also drawings in solution4_3.pdf
+
+Udist distances between graphs
+G1,G2 0.500
+G1,G3 0.588
+G1,G4 0.300
+G2,G3 0.500
+G2,G4 0.571
+G3,G4 0.647
+
+Mdist distances between graphs
+G1,G2 0.417
+G1,G3 0.533
+G1,G4 0.222
+G2,G3 0.400
+G2,G4 0.500
+G3,G4 0.600
+
+Task 4c
+When Udist and Mdist are equivalent?
+Let n1=|G1|, n2=|G2|, assume n1>=n2. Let m=|MCS(G1,G2)|.
+Udist=Mdist if 1-m/(n1+n2-m)=1-m/n1
+Two possibilities: i) if m=0, Udist=Mdist=1. So smallest possible MCS.
+ii) m/n1=m/(n1+n2-m) <=> n1+n2-m=n1 <=> n2=m.
+Since m<=min{n1,n2}, this is maximal possible value of |MCS|.
+Then Udist=Mdist=m/n1.
