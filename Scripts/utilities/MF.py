@@ -47,7 +47,8 @@ def nnd_svd_initialization(D,rank):
 
 # This does not enforce non-negativity (just a direct minimization of reconstruction
 # error, possibly with L2 regularization term
-def matrix_factorization(ratings, U_init, V_init, latent_dims, n_iter=5000, alpha=0.0002, beta=0.02, tol=1e-3):
+# Needs to be cythonized
+def matrix_factorization_slow(ratings, U_init, V_init, latent_dims, n_iter=5000, alpha=0.0002, beta=0.02, tol=1e-3):
     '''
     D: rating matrix
     U: #users x latent_dims
@@ -83,32 +84,77 @@ def matrix_factorization(ratings, U_init, V_init, latent_dims, n_iter=5000, alph
 #Mostly interested in trying this with hybrid recommender systems,  where
 # initial sparse data is "densified" with content based method and only then
 # using NMF/MF for final recommendations (or svd-low-rank, collaborative filtering, etc.)
-def nn_matrix_factorization(ratings, U_init, V_init, latent_dims, n_iter=1000, tol=1e-3):
-    D = ratings
-    U = U_init
-    V = V_init
+def nn_matrix_factorization(X, U_init, V_init, n_iter=100, tol=1e-5):
+    D = X
+    U = U_init.copy()
+    V = V_init.copy()
     n_u, n_i = D.shape
-    K = latent_dims
-    err = []
+    K = V.shape[1]
+    err = np.ones(n_iter)*np.inf
     for step in range(n_iter):
         #update V
         DtU = D.T@U
         VUtU = V@U.T@U
-        for i in range(n_i):
-            for j in range(K):
-                V[i,j] *= DtU[i,j] / VUtU[i,j]
-        
+        V *= DtU / VUtU
         #update U
         DV = D@V
         UVtV = U@V.T@V
-        for i in range(n_u):
-            for j in range(K):
-                U[i,j] *= DV[i,j] / UVtV[i,j]
-        e = np.linalg.norm(D-U@V.T, 'fro')
-        err.append(e)
-        if(e<tol):
+        U *= DV / UVtV
+        # compute error
+        #err[step] = np.linalg.norm(D-U@V.T, 'fro')
+        err[step] = np.sqrt(((D-U@V.T)**2).sum())
+        if err[step-1] - err[step] < tol:
+            err = err[:step]
+            print("Stop at step {}".format(step))
             break
-    return U,V
+    return U,V, err
+
+
+
+
+def matrix_factorization(ratings, U_init, V_init, n_iter=100, n_iter_inner=10, alpha=0.0002, beta=0.02, tol=1e-5):
+    '''
+    D: rating matrix
+    U: #users x latent_dims
+    V: #items x latent_dims
+    alpha: learning rate
+    beta: regularization parameter'''
+    D = ratings
+    U = U_init.copy()
+    V = V_init.copy().T
+    n_u, n_i = D.shape
+    err = np.ones(n_iter)*np.inf
     
+    for step in range(n_iter):
+        
+        # This is a modified version of alternating least squares
+        # where we do multiple steps of gradient descent for each
+        # update of U and V
+        
+        # update U
+        for inner_step in range(n_iter_inner):
+            e_i = D - np.dot(U,V)
+            U = U + alpha * (2 * e_i @ V.T - beta * U)
+            #for i in range(n_u):
+            #    e_i = D[i,:] - np.dot(U[i,:],V)
+            #    U[i,:] = U[i,:] + alpha * (2 * e_i[np.newaxis,:] @ V.T - beta * U[i,:])
+        
+        # update V
+        for inner_step in range(n_iter_inner):
+            e_j = D - np.dot(U,V)
+            V = V + alpha * (2 * U.T @ e_j - beta * V)
+            #for j in range(n_i):
+            #    e_j = D[:,j] - np.dot(U,V[:,j])
+            #    V[:,j] = V[:,j] + alpha * (2 * e_j @ U - beta * V[:,j])
+        
+        # compute error
+        err[step] = np.sqrt(((D-U@V)**2).sum())
+        if np.abs(err[step-1] - err[step]) < tol:
+            err = err[:step]
+            print("Stop at step {}".format(step))
+            break
+        
+    return U, V.T, err
+
     
     

@@ -14,11 +14,17 @@ library(brms)
 # filenum (from 1 to 10)
 fnum <- 1
 path <- "../../../PARKINSONS/PDproj/plasmadata/clean/"
-filenames <- readLines(paste(path, 'filenames.txt', sep = ''))
+filenames <- readLines(paste("../../../PDproj/plasmadata/clean/filenames.txt", sep = ''))
+
+
+filenames
+
+
 fname <- filenames[fnum]
 fname_full <- paste(path, fname, sep='')
 
-data <- read.csv2(fname_full, header = F)
+
+data <- read.csv2(fname_full, header = F, sep='')
 
 gender <- data[1,9:80] %>% factor()
 group <- data[2,9:80] %>% factor()
@@ -39,3 +45,4 @@ colnames(design) <- c(colnames(design)[1:3],paste0("A", 1:(ncol(design)-3)))
 
 model <- brm(A1 ~ pd + male + male_pd, data=design, prior = set_prior("normal(20,10)"), class='b')
 summary(model)
+

@@ -14,7 +14,7 @@ def get_ind(A, I, J):
 def VAT(D):
     n = D.shape[0]
     K = set(range(n))
-    P = np.zeros((n,), dtype=np.int)
+    P = np.zeros((n,), dtype=int)
    
     #init
     i,_ = get_ind(D,K,K)

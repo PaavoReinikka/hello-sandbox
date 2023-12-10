@@ -3,7 +3,10 @@ import pandas as pd
 import seaborn as sns
 import matplotlib.pyplot as plt
 
-
+# TODO: Address this deprecation issue without warnings
+import warnings
+warnings.filterwarnings("ignore", "is_categorical_dtype")
+warnings.filterwarnings("ignore", "use_inf_as_na")
 
 def complete_pairplot(X, group_col=None, feature_ids=None, kind='kde', palette=None):
     if isinstance(X, pd.DataFrame):
