@@ -1,0 +1,60 @@
+---
+title: "Condensed Bishop"
+author: "Aimee Barciauskas"
+date: "21 October 2015"
+output: rmarkdown::tufte_handout
+---
+
+# Introduction
+
+These are my condensed notes from Bishop's **Pattern Recognition and Machine Learning[^Bishop's Pattern Recognition and Machine Learning].**
+
+\newthought{This is a work in progress}
+
+## Section 2.4 The Exponential Family
+
+The exponential family of functions can be generalized as:
+
+$p(\textbf{x}|\eta) = h(x) g(\eta) e^{\eta^{T} u(x) }$
+
+&nbsp;
+
+Where:
+
+* Where $h(x)$ is ??
+* And $g(\eta)$ is the coefficient that ensures the distribution is normalized.
+* And $u(x)$ is som function of $x$
+
+The generalized form of the likelihood estimator function for the exponential family of functions is:
+
+&nbsp;
+
+$p(\textbf{x}|\eta) = \prod_{n=1}^{N} h(x_{n}) g(\eta)^{N} e^{\eta^{T} \sum_{n=1}^{N}u(x_{n}) }$
+
+```{r, fig.margin = TRUE, fig.cap = "Normal Distribution",fig.width = 10, fig.height = 2, fig.fullwidth = TRUE}
+x <- seq(-4, 4, length=100)
+hx <- dnorm(x)
+
+degf <- c(1, 3, 8, 30)
+colors <- c("red", "blue", "darkgreen", "gold", "black")
+labels <- c("df=1", "df=3", "df=8", "df=30", "normal")
+
+plot(x, hx, type="l", lty=2, xlab="x value",
+  ylab="Density", main="Comparison of t Distributions")
+
+for (i in 1:4){
+  lines(x, dt(x,degf[i]), lwd=2, col=colors[i])
+}
+
+legend("topright", inset=.05, title="Distributions",
+  labels, lwd=2, lty=c(1, 1, 1, 1, 2), col=colors)
+```
+
+\begin{marginfigure}
+$$\frac{d}{dx}\left( \int_{0}^{x} f(u)\,du\right)=f(x).$$
+\caption{An equation}
+\end{marginfigure}
+
+\marginnote{This is a margin note.  Notice that there isn't a number preceding the note.}
+
+[^Bishop's Pattern Recognition and Machine Learning]: http://www.rmki.kfki.hu/~banmi/elte/Bishop%20-%20Pattern%20Recognition%20and%20Machine%20Learning.pdf
