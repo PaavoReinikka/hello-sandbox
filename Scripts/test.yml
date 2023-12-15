@@ -1,0 +1,7 @@
+input:
+  ~/Asiakirjat/PDproj/celldata/datawithGFstatus/clean/cellshilicnegGFstatus.csv
+significant:
+  ~/Asiakirjat/PDproj/cellresults/ttest/withGF/only32/ALPHA0.05FC1.0MINVAR0.125/cellshilicnegALPHA0.05FC1.0MINVAR0.125.csv
+output_folder:
+  ~/Asiakirjat/PDproj/paavo/plots/pca_significant_pub
+
