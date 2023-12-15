@@ -31,30 +31,27 @@ parser.add_argument('-s', '--significant', help='significant features file (incl
 parser.add_argument('-o', '--output_folder', help='output folder (including path). If not given, plot is only shown and not saved.' + \
                                                     'If folder does not exist, it is created', required=False)
 parser.add_argument('-t', '--title', help='plot title', required=False)
-# add the arguments to the parser asking whether or not include ID's in the plot. Default is False
 parser.add_argument('-id', '--includeID', help='include ID in the plot', action='store_true')
-# add argument for the format of the plot. Default is eps -- options: eps, tif, jpeg
 parser.add_argument('-f', '--format', help='plot saving format, options: eps (default), tif, jpeg', required=False)
-# add argument for the figsize of the plot. Default is 13,13
 parser.add_argument('-fig', '--figsize', help='Integer indicating the (square) figure size, default is 13(,13)', required=False)
 
-# Add general notes to show when help is called
-notes = """\
-General notes:
--------------
-The input file should be a csv file with the clean celldata format -- first 3 rows are skipped, and columns 8:48 are kept.
+notes = """
 
-The significant features file should be a csv file with results from ttesting. Preferably use files from /PDproj/cellresults/ttest/withGF/only32/...
+The input file should be a csv file with the clean celldata format -- first 3 rows are skipped, and columns 8:48 are kept.\n
 
-The output folder is optional. If not given, the plot is only shown and not saved. If given, the folder is created if it does not exist.
+The significant features file should be a csv file with results from ttesting. Preferably use files from /PDproj/cellresults/ttest/withGF/only32/...\n
+
+The output folder is optional. If not given, the plot is only shown and not saved. If given, the folder is created if it does not exist.\n
 If no title is given, name of the plot will be the same as the significant features file. If no format is given, the default is eps.
 
-The markersize can be changed by changing the s=100 in the ax.scatter commands. The fontsize of the legend can be changed by changing the fontsize=15 in the ax.legend command.
+The markersize can be changed by changing the s=100 in the ax.scatter commands. The fontsize of the legend can be changed by changing the fontsize=15 in the ax.legend command.\n
 But, preferably try changing the plot size with the -fig argument -- this will effectively also change the markersize.
 
-For testing, do not include the -o argument. The plot will then be shown and not saved.
+For testing, do not include the -o argument. The plot will then be shown and not saved.\n
 
 """
+
+parser.epilog = notes
 
 # check if output file is given that the folder exists
 # if not create it
@@ -178,7 +175,6 @@ if SAVE:
 
 else:
     plt.show()
-
 
 
 
