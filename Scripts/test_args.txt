@@ -1,5 +1,6 @@
 -i ../../PARKINSONS/PDproj/celldata/datawithGFstatus/clean/
 -s ../../PARKINSONS/PDproj/cellresults/ttest/withGF/only32/ALPHA0.05FC1.0MINVAR0.125/
 -o ../../PARKINSONS/PDproj/paavo/plots/pca/new/
--t testi
+-t "if no title, filename is used"
+
 
