@@ -3,7 +3,7 @@ filename_data:
 filename_significant:
   C:\Users\paavo\Tiedostot\PARKINSONS\PDproj\cellresults\ttest\withGF\only32\ALPHA0.05FC1.0MINVAR0.125\cellshilicnegALPHA0.05FC1.0MINVAR0.125.csv
 folder_out:
-  None #C:\Users\paavo\Tiedostot\PARKINSONS\PDproj\paavo\plots\pca_significant_pub\
+  C:\Users\paavo\Tiedostot\PARKINSONS\PDproj\paavo\plots\mf_significant\
 plot_format:
   eps
 figsize:
@@ -12,7 +12,8 @@ includeID:
   False
 title:
   None
- 
+ method:
+  mf
  
 # cellshilicnegGFstatus.csv
 # cellshilicposGFstatus.csv
