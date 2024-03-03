@@ -150,11 +150,13 @@ def MWSL_parallel(dataX, dataY, alpha = 0.05, K = None):
     start = time.time()
     num_cores = multiprocessing.cpu_count()
     print("Running on {} cores".format(num_cores))
+    
     # Generate the random indices
     rand_inds = np.stack([np.random.permutation(n) for i in range(K)], axis=0)
     results = Parallel(n_jobs=num_cores)(delayed(stats.ttest_ind)(data[:,rand_inds[i,:nX]],\
                                                                     data[:,rand_inds[i,nX:]],\
                                                                         axis=1, equal_var=False, nan_policy='raise') for i in range(K))
+    
     
     q = np.asarray([np.min(result.pvalue) for result in results])
     all_pvalues = np.asarray([result.pvalue for result in results])
@@ -177,8 +179,8 @@ def MWSL_parallel(dataX, dataY, alpha = 0.05, K = None):
     print("Time elapsed: ", end-start)
     
     return result
-    
-    
+
+
 def MWSL_independent(dataX, dataY, alpha=0.05, K=None):
     # Like the above functions but imposes independence between the tests
     # by permuting the labels of the samples independently for each test

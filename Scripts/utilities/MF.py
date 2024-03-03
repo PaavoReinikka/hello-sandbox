@@ -1,4 +1,41 @@
 import numpy as np
+from sklearn.linear_model import ElasticNet
+from sklearn.preprocessing import StandardScaler
+
+def SPCA(X, n_components, n_iter=100, alpha=0, l1_ratio=0.5):
+    """
+    Alternating Sparse PCA
+
+    Parameters
+    ----------
+    X : array_like, shape (n_samples, n_features)
+        Training data.
+    alpha : float, optional (default=0)
+        Regularization parameter.
+
+    """
+    #loss = lambda X, A, B: np.linalg.norm(X@A - X@B, ord='fro')**2 + alpha*((1-l1_ratio)*np.linalg.norm(B, ord=2) + l1_ratio*np.linalg.norm(A, ord=2)
+    N, D = X.shape
+    C = np.cov(X.T)
+    eigvals, eigvecs = np.linalg.eig(C)
+    ind = np.argsort(eigvals)[::-1]
+    eigvals = eigvals[ind][:n_components]
+    eigvecs = eigvecs[:, ind][:, :n_components]
+    
+    A = eigvecs
+    B = np.zeros((D, n_components))
+    x_star = np.sqrt(N*C)
+    
+    for i in range(n_iter):
+        y_star = x_star @ A
+        for j in range(n_components):
+            B[:, j] = ElasticNet(alpha=alpha, l1_ratio=l1_ratio).fit(x_star, y_star[:,j]).coef_
+        U, S, Vt = np.linalg.svd(X.T@X@B, full_matrices=True)
+        A = U@Vt
+        
+    return A, B
+
+
 
 
 def random_initialization(D,rank):
